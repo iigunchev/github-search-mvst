@@ -1,19 +1,7 @@
-import './Header.module.css';
-
 const Header = () => {
   return (
-    <header
-      style={{
-        backgroundColor: 'black',
-        color: 'white',
-        padding: '10px',
-        height: '56px',
-        fontSize: '28px',
-        display: 'flex',
-        alignItems: 'center'
-      }}
-    >
-      GitSearch
+    <header className="bg-dark p-4">
+      <span className="text-slate-50">GitSearch</span>
     </header>
   );
 };
