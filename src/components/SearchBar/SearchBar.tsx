@@ -22,7 +22,7 @@ const SearchBar = () => {
         const result = await searchUsers(searchQuery);
         // guard against empty response
         if (result.message === 'Not Found') {
-          setSearchError('No results found');
+          setSearchError(result.message);
           return;
         }
         // Redirect to user page
@@ -44,7 +44,7 @@ const SearchBar = () => {
           onChange={debouncedOnChange}
         />
       </label>
-      {searchError && <div className="mt-4">User: {searchError}</div>}
+      {searchError && <div className="mt-4 text-center italic text-md text-slate-500">User: {searchError}</div>}
     </section>
   );
 };
