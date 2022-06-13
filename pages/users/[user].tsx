@@ -3,6 +3,13 @@ import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 import searchUser from '../../services/searchUser';
 import getUserRepos from '../../services/getUserRepos';
 
+const mockUser = {
+  avatar_url: 'https://avatars.githubusercontent.com/u/86871642?v=4',
+  name: 'Ivan',
+  login: 'iigunchev',
+  bio: 'Front end web developer with a background in video and motion graphics. Passionate about pixel perfect design and glorious micro interactions.'
+};
+
 export interface Data {
   avatar_url: string;
   name: string;
@@ -18,35 +25,35 @@ export interface Repos {
   updated_at: Date;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const username = context.query.user as string;
-  const userDetails: Data = await searchUser(username);
-  const userRepos: Repos[] = await getUserRepos(username);
-  const data = {
-    details: userDetails,
-    repos: [userRepos]
-  };
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   const username = context.query.user as string;
+//   const userDetails: Data = await searchUser(username);
+//   const userRepos: Repos[] = await getUserRepos(username);
+//   const data = {
+//     details: userDetails,
+//     repos: [userRepos]
+//   };
 
-  return {
-    props: {
-      data
-    }
-  };
-};
+//   return {
+//     props: {
+//       data
+//     }
+//   };
+// };
 
-const User = ({
-  data
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  console.log(data);
+// data
+// }: InferGetServerSidePropsType<typeof getServerSideProps>
+
+const User = () => {
   return (
-    <div>
+    <main className="p-4 flex gap-4 max-w-6xl sm:bg-white rounded-lg sm:border-2 border-slate-300 sm:m-4 ">
       <UserInfo
-        avatar_url={data.details.avatar_url}
-        name={data.details.name}
-        login={data.details.login}
-        bio={data.details.bio}
+        avatar_url={mockUser.avatar_url}
+        name={mockUser.name}
+        login={mockUser.login}
+        bio={mockUser.bio}
       />
-    </div>
+    </main>
   );
 };
 
