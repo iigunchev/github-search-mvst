@@ -2,6 +2,7 @@ import UserInfo from '../../src/components/UserInfo/UserInfo';
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 import searchUser from '../../services/searchUser';
 import getUserRepos from '../../services/getUserRepos';
+import UserRepos from '../../src/components/UserRepos/UserRepos';
 
 const mockUser = {
   avatar_url: 'https://avatars.githubusercontent.com/u/86871642?v=4',
@@ -10,6 +11,22 @@ const mockUser = {
   bio: 'Front end web developer with a background in video and motion graphics. Passionate about pixel perfect design and glorious micro interactions.'
 };
 
+const mockRepos = [
+  {
+    name: 'react-hooks-typescript',
+    description: 'React hooks and TypeScript',
+    stargazers_count: 0,
+    language: 'TypeScript',
+    updated_at: '2020-01-01'
+  },
+  {
+    name: 'react-hooks-typescript',
+    description: 'React hooks and TypeScript',
+    stargazers_count: 0,
+    language: 'TypeScript',
+    updated_at: '2020-01-01'
+  }
+];
 export interface Data {
   avatar_url: string;
   name: string;
@@ -17,7 +34,7 @@ export interface Data {
   bio: string;
 }
 
-export interface Repos {
+export interface Repo {
   name: string;
   description: string;
   stargazers_count: number | null;
@@ -53,6 +70,7 @@ const User = () => {
         login={mockUser.login}
         bio={mockUser.bio}
       />
+      <UserRepos repos={mockRepos} />
     </main>
   );
 };

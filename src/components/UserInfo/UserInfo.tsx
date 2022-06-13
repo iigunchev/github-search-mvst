@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Data } from '../../../pages/users/[user]';
 
 const UserInfo = ({ avatar_url, name, login, bio }: Data) => {
