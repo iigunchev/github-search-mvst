@@ -1,19 +1,11 @@
-import './Header.module.css';
+import Link from 'next/link';
 
-const Header = () => {
+const Header = ({ title }: { title: string }) => {
   return (
-    <header
-      style={{
-        backgroundColor: 'black',
-        color: 'white',
-        padding: '10px',
-        height: '56px',
-        fontSize: '28px',
-        display: 'flex',
-        alignItems: 'center'
-      }}
-    >
-      GitSearch
+    <header className="bg-dark p-4">
+      <Link href="/">
+        <span className="text-slate-50 cursor-pointer text-lg">{title}</span>
+      </Link>
     </header>
   );
 };

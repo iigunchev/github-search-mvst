@@ -8,7 +8,7 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <Header />
+      <Header title="GitSearch"/>
       {children}
     </>
   );

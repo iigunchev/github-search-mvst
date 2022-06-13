@@ -3,13 +3,11 @@ import Home from '../pages/index';
 import '@testing-library/jest-dom';
 
 describe('Home', () => {
-  it('renders a heading', () => {
+  it('renders the search bar on the homepage', () => {
     render(<Home />);
 
-    const heading = screen.getByRole('heading', {
-      name: /welcome to next\.js!/i
-    });
+    const placeholder = screen.getByRole('search');
 
-    expect(heading).toBeInTheDocument();
+    expect(placeholder).toBeInTheDocument();
   });
 });
