@@ -1,4 +1,4 @@
-import { UserData } from '../../../pages/users/[user]';
+import { UserData } from '../../../interfaces/interfaces';
 
 const UserInfo = ({ data }: { data: UserData }) => {
   return (

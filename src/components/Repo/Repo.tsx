@@ -24,7 +24,7 @@ const Repo = ({
             </span>
           )}
 
-          <span>Last updated: {updated_at}</span>
+          <span>Updated: {updated_at.slice(0, 10)}</span>
         </div>
       </div>
     </Link>

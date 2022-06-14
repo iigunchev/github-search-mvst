@@ -1,16 +1,9 @@
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
+import { useRouter } from 'next/router';
 import UserInfo from '../../src/components/UserInfo/UserInfo';
 import searchUser from '../../services/searchUser';
-import getUserRepos from '../../services/getUserRepos';
 import RepoList from '../../src/components/RepoList/RepoList';
-import { useRouter } from 'next/router';
-
-export interface UserData {
-  avatar_url: string;
-  name: string;
-  login: string;
-  bio: string;
-}
+import { UserData } from '../../interfaces/interfaces';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const username = context.query.user as string;
