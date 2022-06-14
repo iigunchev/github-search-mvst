@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import star from '../../assets/star.svg';
-import { Repo } from '../RepoList/RepoList';
+import { RepoOverview } from '../../../interfaces/interfaces';
 
 const Repo = ({
   name,
@@ -9,7 +9,7 @@ const Repo = ({
   language,
   stargazers_count,
   updated_at
-}: Repo) => {
+}: RepoOverview) => {
   return (
     <Link href={`/repos/$.name}`}>
       <div className="p-4 bg-orange-50 mt-4 rounded-lg border">
@@ -19,7 +19,8 @@ const Repo = ({
           {language && <span>{language}</span>}
           {stargazers_count !== 0 && (
             <span className="flex items-center gap-1">
-              <Image src={star} alt="star" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={star} alt="star" />
               {stargazers_count}
             </span>
           )}
