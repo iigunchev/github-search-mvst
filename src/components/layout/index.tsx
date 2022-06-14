@@ -7,10 +7,10 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <>
+    <div className="h-full w-full bg-white sm:bg-orange-50">
       <Header title="GitSearch"/>
       {children}
-    </>
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@ import { Data } from '../../../pages/users/[user]';
 
 const UserInfo = ({ avatar_url, name, login, bio }: Data) => {
   return (
-    <section className="w-full sm:max-w-[250px]">
+    <section className="w-full sm:max-w-[250px] bg-orange-50 p-4 sm:bg-white">
       <div className="flex gap-4 sm:block">
         <div className="max-w-[100px] sm:max-w-[250px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
