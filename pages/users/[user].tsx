@@ -3,6 +3,7 @@ import UserInfo from '../../src/components/UserInfo/UserInfo';
 import searchUser from '../../services/searchUser';
 import getUserRepos from '../../services/getUserRepos';
 import RepoList from '../../src/components/RepoList/RepoList';
+import { useRouter } from 'next/router';
 
 export interface UserData {
   avatar_url: string;
@@ -25,11 +26,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const User = ({
   data
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const router = useRouter();
+  const username = router.query.user as string;
   return (
     <div className="sm:px-8 h-full">
       <main className="bg-black gap-8 max-w-6xl mx-auto sm:w-full sm:rounded-xl overflow-hidden sm:bg-white sm:flex sm:border-2 sm:mt-8">
         <UserInfo data={data} />
-        {/* <RepoList /> */}
+        <RepoList username={username} />
       </main>
     </div>
   );

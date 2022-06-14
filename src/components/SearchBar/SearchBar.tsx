@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import debounce from 'lodash.debounce';
 import searchUsers from '../../../services/searchUser';
+import { useRouter } from 'next/router';
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchError, setSearchError] = useState<string | null>(null);
+  const [queryState, setQueryState] = useState('');
 
   const router = useRouter();
 
@@ -16,19 +16,23 @@ const SearchBar = () => {
 
   // fetch search results on query change
   useEffect(() => {
+    setQueryState('');
     if (searchQuery.length < 3) return;
     (async () => {
       try {
+        setQueryState('loading');
         const result = await searchUsers(searchQuery);
         // guard against empty response
         if (result.message === 'Not Found') {
-          setSearchError(result.message);
+          setQueryState('error');
           return;
         }
         // Redirect to user page
         router.push(`/users/${searchQuery}`);
       } catch (error: any) {
-        console.log(error.message);
+        setQueryState('server error');
+      } finally {
+        setQueryState('');
       }
     })();
   }, [searchQuery, router]);
@@ -37,7 +41,7 @@ const SearchBar = () => {
     <section className="min-w-full mt-8">
       <label htmlFor="search" className="flex justify-center">
         <input
-        role="search"
+          role="search"
           className="w-full max-w-lg px-4 py-2 border border-slate-300 rounded-full focus:border-slate-500 outline-none"
           type="search"
           id="search"
@@ -45,7 +49,11 @@ const SearchBar = () => {
           onChange={debouncedOnChange}
         />
       </label>
-      {searchError && <div className="mt-4 text-center italic text-md text-slate-500">User: {searchError}</div>}
+
+      <div className="mt-4 text-center italic text-md text-slate-500">
+        {queryState === 'error' && <span>User: Not Found</span>}
+        {queryState === 'loading' && <span>Loading</span>}
+      </div>
     </section>
   );
 };

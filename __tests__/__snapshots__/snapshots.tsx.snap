@@ -20,6 +20,9 @@ exports[`renders homepage unchanged 1`] = `
           type="search"
         />
       </label>
+      <div
+        class="mt-4 text-center italic text-md text-slate-500"
+      />
     </section>
   </main>
 </div>
