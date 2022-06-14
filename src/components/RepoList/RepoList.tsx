@@ -1,31 +1,42 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { Repo } from '../../../pages/users/[user]';
-import star from '../../../src/assets/star.svg';
+import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
+import getUserRepos from '../../../services/getUserRepos';
+import Repo from '../Repo/Repo';
 
-const RepoList = ({ repos }: { repos: Repo[] }) => {
+export interface Repo {
+  name: string;
+  description: string;
+  stargazers_count: number | null;
+  language: string | null;
+  updated_at: string;
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const username = context.query.user as string;
+  const data: Repo[] = await getUserRepos(username);
+
+  return {
+    props: {
+      data
+    }
+  };
+};
+
+const RepoList = ({
+  data
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <ul className="w-full bg-white p-4">
-      {repos &&
-        repos.map((repo: Repo, index) => (
+      {data &&
+        data.map((repo: Repo, index: any) => (
           <li key={index} className="cursor-pointer">
-            <Link href={`/repos/${repo.name}`}>
-              <div className="p-4 bg-orange-50 mt-4 rounded-lg border">
-                <h4 className="font-bold text-lg text-zinc-900">{repo.name}</h4>
-                <p className="text-zinc-400 mt-2">{repo.description}</p>
-                <div className="mt-2 flex items-center gap-4 text-xs text-zinc-400">
-                  {repo.language && <span>{repo.language}</span>}
-                  {repo.stargazers_count !== 0 && (
-                    <span className="flex items-center gap-1">
-                      <Image src={star} alt="star" />
-                      {repo.stargazers_count}
-                    </span>
-                  )}
-
-                  <span>Last updated: {repo.updated_at}</span>
-                </div>
-              </div>
-            </Link>
+            <Repo
+              key={index}
+              name={repo.name}
+              description={repo.description}
+              language={repo.language}
+              stargazers_count={repo.stargazers_count}
+              updated_at={repo.updated_at}
+            />
           </li>
         ))}
     </ul>

@@ -1,6 +1,6 @@
 const getUserRepos = async (name: string) => {
   try {
-    const response = await fetch(`https://api.github.com/users/${name}/repos?per_page=10`, {
+    const response = await fetch(`https://api.github.com/users/${name}/repos`, {
       headers: {
         Authorization: `${process.env.GITHUB_ACCESS_TOKEN}`
       }

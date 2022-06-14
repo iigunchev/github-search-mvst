@@ -5,5 +5,7 @@
 @layer base {
   #__next {
     min-height: 100vh;
+    height: 100%;
+    background-color: #FFF7ED;
   }
 }
