@@ -3,7 +3,7 @@
 exports[`renders homepage unchanged 1`] = `
 <div>
   <main
-    class="p-4 flex justify-center items-center bg-orange-50"
+    class="p-4 flex justify-center items-center bg-orange-50 pt-8"
   >
     <div
       class="w-full"

@@ -21,18 +21,6 @@ const useRepoQuery = (username: string) => {
     })();
   }, [username]);
 
-  // useEffect(() => {
-  //   if (filter !== '') return;
-  //   (async() => {
-  //     try {
-  //       const data = await getUserRepos(username);
-  //       setRepos(data);
-  //     } catch (err) {
-  //       setQueryState('error');
-  //     }
-  //   })()
-  // }, [filter]);
-
   return { repos, setRepos, queryState, filter, setFilter };
 };
 

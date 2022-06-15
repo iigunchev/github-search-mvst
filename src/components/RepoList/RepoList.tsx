@@ -5,8 +5,7 @@ import Repo from '../Repo/Repo';
 import getFilteredRepos from '../../../services/getFilteredRepos';
 
 const RepoList = ({ username }: { username: string }) => {
-  const { repos, queryState, setRepos } =
-    useRepoQuery(username);
+  const { repos, queryState, setRepos } = useRepoQuery(username);
   // search query and debounced function
   const updateFilter = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const filter = e.target.value;
