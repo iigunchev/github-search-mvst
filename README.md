@@ -3,7 +3,7 @@
 ## About The Challenge
 
 The task is to display a GitHub user and their repositories and allow the user to filter through the repositories by name using a search bar.
-For the design I was inspired by the layout and colours of the [Agrilution app]https://www.mvst.co/showcases/agrilution).
+For the design I was inspired by the layout and colours of the Agrilution app => https://www.mvst.co/showcases/agrilution.
 
 ### Built With
 
