@@ -1,6 +1,6 @@
 const getFilteredRepos = async (name: string, filter: string) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/${name}/repos`, {
+    const response = await fetch(`https://github-search-mvst.vercel.app/api/${name}/repos`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
