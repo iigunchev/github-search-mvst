@@ -36,7 +36,21 @@ Install NPM packages
    ```sh
    npm install
    ```
-
+   
+Run de development server
+   ```sh
+   npm run dev
+   ```
+   
+Run the test suite 
+   ```sh
+   npm run test
+   ```
+   
+Run storybook
+   ```sh
+   npm run storybook
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
