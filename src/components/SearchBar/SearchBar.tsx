@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
-import debounce from 'lodash.debounce';
 import searchUsers from '../../../services/searchUser';
 import Image from 'next/image';
 import searchIcon from '../../assets/searchIcon.svg';
@@ -32,7 +31,6 @@ const SearchBar = () => {
   // search query and debounced function
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearchQuery(e.target.value);
-  // const debouncedOnChange = debounce(updateQuery, 500);
 
   return (
     <div className="w-full">
@@ -51,18 +49,23 @@ const SearchBar = () => {
           />
           <button
             type="submit"
+            disabled={queryState === 'loading'}
             className="bg-zinc-900 text-white flex justify-center gap-2 px-4 py-2 rounded-full w-max-content hover:bg-zinc-700 max-w-lg"
           >
-            <Image
-              src={searchIcon}
-              alt="search"
-              className="searchBtnImage"
-              width={24}
-              height={24}
-            />
-            <span className="">
-              {queryState === 'loading' ? 'Loading' : 'Search'}
-            </span>
+            {queryState === 'loading' ? (
+              <span>Loading</span>
+            ) : (
+              <>
+                <Image
+                  src={searchIcon}
+                  alt="search"
+                  className="searchBtnImage"
+                  width={24}
+                  height={24}
+                />
+                <span>Search</span>
+              </>
+            )}
           </button>
         </label>
       </form>

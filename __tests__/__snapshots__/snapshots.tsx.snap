@@ -3,27 +3,60 @@
 exports[`renders homepage unchanged 1`] = `
 <div>
   <main
-    class="p-4 flex justify-center items-center"
+    class="p-4 flex justify-center items-center bg-orange-50"
   >
-    <section
-      class="min-w-full"
+    <div
+      class="w-full"
     >
-      <label
-        class="flex justify-center"
-        for="search"
-      >
-        <input
-          class="w-full max-w-lg px-4 py-2 border border-slate-300 rounded-full focus:border-slate-500 outline-none"
-          id="search"
-          placeholder="Type a GitHub username..."
-          role="search"
-          type="search"
-        />
-      </label>
+      <form>
+        <label
+          class="flex flex-col justify-center gap-4 relative sm:flex-row"
+          for="search"
+        >
+          <input
+            class="w-full max-w-lg px-4 py-2 border border-slate-300 rounded-full focus:border-slate-500 outline-none"
+            id="search"
+            placeholder="Type in a GitHub username"
+            role="search"
+            type="search"
+          />
+          <button
+            class="bg-zinc-900 text-white flex justify-center gap-2 px-4 py-2 rounded-full w-max-content hover:bg-zinc-700 max-w-lg"
+            type="submit"
+          >
+            <span
+              style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+            >
+              <span
+                style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+                  style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+                />
+              </span>
+              <img
+                alt="search"
+                class="searchBtnImage"
+                data-nimg="intrinsic"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+              <noscript />
+            </span>
+            <span>
+              Search
+            </span>
+          </button>
+        </label>
+      </form>
       <div
         class="mt-4 text-center italic text-md text-slate-500"
       />
-    </section>
+    </div>
   </main>
 </div>
 `;

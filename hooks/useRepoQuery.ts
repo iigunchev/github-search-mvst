@@ -4,6 +4,7 @@ import { RepoOverview } from '../interfaces/interfaces';
 
 const useRepoQuery = (username: string) => {
   const [repos, setRepos] = useState<RepoOverview[]>([]);
+  const [filter, setFilter] = useState('');
   const [queryState, setQueryState] = useState('');
 
   useEffect(() => {
@@ -20,7 +21,19 @@ const useRepoQuery = (username: string) => {
     })();
   }, [username]);
 
-  return { repos, setRepos, queryState };
+  // useEffect(() => {
+  //   if (filter !== '') return;
+  //   (async() => {
+  //     try {
+  //       const data = await getUserRepos(username);
+  //       setRepos(data);
+  //     } catch (err) {
+  //       setQueryState('error');
+  //     }
+  //   })()
+  // }, [filter]);
+
+  return { repos, setRepos, queryState, filter, setFilter };
 };
 
 export default useRepoQuery;
