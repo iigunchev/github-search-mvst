@@ -6,7 +6,7 @@ exports[`renders homepage unchanged 1`] = `
     class="p-4 flex justify-center items-center"
   >
     <section
-      class="min-w-full mt-8"
+      class="min-w-full"
     >
       <label
         class="flex justify-center"
@@ -15,7 +15,7 @@ exports[`renders homepage unchanged 1`] = `
         <input
           class="w-full max-w-lg px-4 py-2 border border-slate-300 rounded-full focus:border-slate-500 outline-none"
           id="search"
-          placeholder="Type a GitHub username here..."
+          placeholder="Type a GitHub username..."
           role="search"
           type="search"
         />

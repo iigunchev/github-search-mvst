@@ -20,7 +20,7 @@ const useRepoQuery = (username: string) => {
     })();
   }, [username]);
 
-  return { repos, queryState };
+  return { repos, setRepos, queryState };
 };
 
 export default useRepoQuery;

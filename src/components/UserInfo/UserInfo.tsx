@@ -2,7 +2,7 @@ import { UserData } from '../../../interfaces/interfaces';
 
 const UserInfo = ({ data }: { data: UserData }) => {
   return (
-    <section className="w-full sm:max-w-[250px] bg-orange-50 p-4 sm:bg-white">
+    <section className="w-full sm:max-w-[250px] bg-orange-50 p-4 mt-4 sm:p-0 sm:bg-white">
       <div className="flex gap-4 sm:block">
         <div className="max-w-[100px] sm:max-w-[250px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}

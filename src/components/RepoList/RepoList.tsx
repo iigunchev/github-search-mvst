@@ -4,13 +4,12 @@ import Repo from '../Repo/Repo';
 
 const RepoList = ({ username }: { username: string }) => {
   const { repos, queryState } = useRepoQuery(username);
-
   return (
-    <>
-      {queryState === 'loading' && <p className="mt-8">Loading...</p>}
-      {queryState === 'error' && <p className="mt-8">Error</p>}
-      <ul className="w-full bg-white p-4">
-        {repos &&
+    <div className="my-4 sm:my-0">
+      <ul className="w-full bg-white">
+        {queryState === 'loading' && <p className="mt-8">Loading...</p>}
+        {queryState === 'error' && <p className="mt-8">Error</p>}
+        {repos.length > 0 &&
           repos.map((repo: RepoOverview, index: any) => (
             <li key={index} className="cursor-pointer">
               <Repo
@@ -24,7 +23,7 @@ const RepoList = ({ username }: { username: string }) => {
             </li>
           ))}
       </ul>
-    </>
+    </div>
   );
 };
 

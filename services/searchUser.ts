@@ -5,10 +5,13 @@ const searchUser = async (name: string) => {
         Authorization: `${process.env.GITHUB_ACCESS_TOKEN}`
       }
     });
+    if (response.status === 404) {
+      throw new Error('User not found');
+    }
     const data = await response.json();
     return data;
-  } catch (err) {
-    console.log(err);
+  } catch (err: any) {
+    return err.message;
   }
 };
 export default searchUser;

@@ -12,3 +12,10 @@ export interface UserData {
   login: string;
   bio: string;
 }
+
+export interface SearchOptions {
+  placeholder: string;
+  query: 'user' | 'repo';
+  action?: any;
+  data?: RepoOverview[] | null;
+}
