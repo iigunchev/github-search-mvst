@@ -10,7 +10,7 @@ For the design I was inspired by the layout and colours of the Agrilution app =>
 
 * [Next.js](https://nextjs.org/)
 * [TailwindCss](https://tailwindcss.com/)
-* [Storybook](https://storybook.js.org/))
+* [Storybook](https://storybook.js.org/)
 * [Typescript](https://www.typescriptlang.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -44,7 +44,7 @@ Install NPM packages
 ## Next Steps
 
 - [ ] Add Pagination to the search results
-- [ ] Complete tests (integration and E2E
+- [ ] Complete tests (integration and E2E)
 - [ ] Migrate to the v4 GitHub API, which is built using GraphQL
 
 <p align="right">(<a href="#top">back to top</a>)</p>
