@@ -9,11 +9,8 @@ describe('get a list of user repos', () => {
     const fetchMock = jest
       .spyOn(data, 'getFilteredRepos')
       .mockImplementation(() => Promise.resolve(mockRepos));
-    const repos = await fetchMock('iigunchev');
-    // const json = await data.getFilteredRepos('username');
 
-    // expect(fetchMock).toHaveBeenCalledWith('username');
-    // expect(json).toEqual(mockRepos);
+    const repos = await fetchMock('iigunchev');
 
     render(
       <Repo
@@ -26,9 +23,10 @@ describe('get a list of user repos', () => {
       />
     );
 
-    expect(await screen.findByText(/react/)).toBeInTheDocument();
-
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledWith('iigunchev');
+    expect(
+      await screen.findByText(/react-hooks-typescript/)
+    ).toBeInTheDocument();
   });
 });
