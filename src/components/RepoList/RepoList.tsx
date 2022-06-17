@@ -2,7 +2,7 @@ import useRepoQuery from '../../../hooks/useRepoQuery';
 import { RepoOverview } from '../../../interfaces/interfaces';
 import debounce from 'lodash.debounce';
 import Repo from '../Repo/Repo';
-import getFilteredRepos from '../../../services/getFilteredRepos';
+import { getFilteredRepos } from '../../../services/getFilteredRepos';
 
 const RepoList = ({ username }: { username: string }) => {
   const { repos, queryState, setRepos } = useRepoQuery(username);

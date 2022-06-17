@@ -1,4 +1,4 @@
-const searchUser = async (name: string) => {
+export async function searchUser(name: string) {
   try {
     const response = await fetch(`https://api.github.com/users/${name}`, {
       headers: {
@@ -13,5 +13,4 @@ const searchUser = async (name: string) => {
   } catch (err: any) {
     return err.message;
   }
-};
-export default searchUser;
+}
